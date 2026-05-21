@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import os
-from openvino.runtime import Core
+from openvino import Core
 
 # ── 설정 ──────────────────────────────────────────────
 IMG_SIZE = (224, 224)
@@ -124,7 +124,7 @@ uploaded = st.file_uploader(
 
 if uploaded:
     pil_img = Image.open(uploaded)
-    st.image(pil_img, use_container_width=True)
+    st.image(pil_img, use_column_width=True)
 
     if st.button("검사 실행"):
         with st.spinner("분석 중…"):
